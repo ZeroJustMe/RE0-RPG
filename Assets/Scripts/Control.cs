@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Control : MonoBehaviour {
 
-    float HorizontalSpeed, VerticalSpeed;
+    public float HorizontalSpeed, VerticalSpeed;
 
     Animator Player;
 

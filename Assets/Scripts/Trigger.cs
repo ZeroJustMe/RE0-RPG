@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Trigger : MonoBehaviour {
+    public EnemyController enemyScript;
 
     bool HaveEntered = false;
-
-    float StartTime, NowTime;
+    
 
     Vector3 PreCamera, PrePlayer;
 
     GameObject Enemy = null, Camera;
+
     Collider2D Player;
 
 	// Use this for initialization
@@ -20,8 +21,7 @@ public class Trigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        NowTime = Time.time;
-        if (Enemy != null && NowTime - StartTime >= 5)
+        if (Enemy != null && enemyScript.HP<=0 && Time.time - enemyScript.StartTime >= 3)
         {
             Camera.transform.position = PreCamera;
             Player.transform.position = PrePlayer;
@@ -34,7 +34,6 @@ public class Trigger : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         if (HaveEntered) { HaveEntered = false; return;}
-        StartTime = Time.time;
 
         Enemy = Instantiate(Resources.Load("Prefebs/Enemy") as GameObject) as GameObject;
         Enemy.transform.localScale = new Vector3((float)0.0073, (float)0.0073, 1);
