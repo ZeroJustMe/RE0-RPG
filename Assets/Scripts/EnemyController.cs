@@ -31,11 +31,11 @@ public class EnemyController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Damage") {
-            if (other.name == "PA") {
+            if (other.name == "PA(Clone)") {
                 HP -= 33.4f;
                 Destroy(other);
             }
-            else if (other.name == "Boom") {
+            else if (other.name == "Boom(Clone)") {
                 HP -= 100f;
                 Destroy(other);
             }

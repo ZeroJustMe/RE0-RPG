@@ -10,14 +10,15 @@ public class Trigger : MonoBehaviour {
 
     Vector3 PreCamera, PrePlayer;
 
-    GameObject Enemy = null, Camera;
+    GameObject Enemy = null, Camera, Map2;
 
     Collider2D Player;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        Map2 = GameObject.Find("Map2");
+        Camera = GameObject.Find("Main Camera");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,9 +43,8 @@ public class Trigger : MonoBehaviour {
         Player = other;
         PrePlayer = Player.transform.position;
         Player.transform.localPosition = new Vector3((float)-7, (float)-10, -10);
-
-        Camera = GameObject.Find("Main Camera");
+        
         PreCamera = Camera.transform.position;
-        Camera.transform.localPosition = new Vector3((float)0, (float)-10, -100);
+        Camera.transform.localPosition = new Vector3(Map2.transform.position.x+2, Map2.transform.position.y, -100);
     }
 }

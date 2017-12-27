@@ -66,8 +66,12 @@
      <Compile Include="Assets\FantasyHeroes\Scripts\SpriteGroupEntry.cs" />
      <Compile Include="Assets\FantasyHeroes\Scripts\SpriteSheetMaker.cs" />
      <Compile Include="Assets\FantasyHeroes\Scripts\WeaponType.cs" />
+     <Compile Include="Assets\Scripts\BoomShooter.cs" />
      <Compile Include="Assets\Scripts\Control.cs" />
+     <Compile Include="Assets\Scripts\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\PAShooter.cs" />
      <Compile Include="Assets\Scripts\Trigger.cs" />
+     <Compile Include="Assets\Scripts\WeaponController.cs" />
      <None Include="Assets\FantasyHeroes\Shaders\ColorizeEyes.shader" />
      <None Include="Assets\FantasyHeroes\Shaders\Diffuse-Masked.shader" />
  <Reference Include="UnityEngine.UI">
