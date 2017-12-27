@@ -30,7 +30,7 @@ public class Trigger : MonoBehaviour {
             StartTime = Time.time;
             dieFlag = true;
 }
-        if (Enemy != null && dieFlag && Time.time - StartTime >= 6)
+        if (Enemy != null && dieFlag && Time.time - StartTime >= waitingTime)
         {
             Camera.transform.position = PreCamera;
             Player.transform.position = PrePlayer;
