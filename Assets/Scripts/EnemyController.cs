@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         HP = MaxHP;
+        StartTime = Time.time;
         dieFlag = false;
         enemyAnim = transform.Find("Animation").GetComponent<Animator>();
     }
@@ -33,11 +34,11 @@ public class EnemyController : MonoBehaviour {
         if (other.tag == "Damage") {
             if (other.name == "PA(Clone)") {
                 HP -= 33.4f;
-                Destroy(other);
+                Destroy(other.gameObject);
             }
             else if (other.name == "Boom(Clone)") {
                 HP -= 100f;
-                Destroy(other);
+                Destroy(other.gameObject);
             }
         }
     }

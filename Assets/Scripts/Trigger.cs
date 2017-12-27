@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Trigger : MonoBehaviour {
-    public EnemyController enemyScript;
+    EnemyController enemyScript;
+    public float waitingTime;
 
     bool HaveEntered = false;
     
@@ -22,13 +23,14 @@ public class Trigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Enemy != null && enemyScript.HP<=0 && Time.time - enemyScript.StartTime >= 3)
+        if (Enemy != null && enemyScript.HP<=0 && Time.time - enemyScript.StartTime >= 6)
         {
             Camera.transform.position = PreCamera;
             Player.transform.position = PrePlayer;
             Destroy(Enemy);
             HaveEntered = true;
             Enemy = null;
+
         }
     }
 
@@ -39,6 +41,7 @@ public class Trigger : MonoBehaviour {
         Enemy = Instantiate(Resources.Load("Prefebs/Enemy") as GameObject) as GameObject;
         Enemy.transform.localScale = new Vector3((float)0.0073, (float)0.0073, 1);
         Enemy.transform.localPosition = new Vector3((float)5.4, (float)-10, -10);
+        enemyScript = Enemy.GetComponent<EnemyController>();
 
         Player = other;
         PrePlayer = Player.transform.position;
