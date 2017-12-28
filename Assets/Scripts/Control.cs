@@ -12,9 +12,6 @@ public class Control : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        HorizontalSpeed  = (float)3.8;
-        VerticalSpeed    = (float)3.0;
-
         Camera = GameObject.Find("Main Camera");
         Player = GameObject.Find("Player/Animation").GetComponent<Animator>();
 	}
@@ -23,8 +20,9 @@ public class Control : MonoBehaviour {
     void Update() {
         float H = Input.GetAxis("Horizontal");
         float V = Input.GetAxis("Vertical");
-        if (H == 0 && V == 0) { Player.SetBool("IfRun", false); return; }
+        Player.SetBool("IfRun", false);
 
+        if (H == 0 && V == 0) return;
         Player.SetBool("IfRun", true);
 
         if (H != 0 && (transform.position.x > -10 && H < 0) || (transform.position.x < 30 && H > 0))
